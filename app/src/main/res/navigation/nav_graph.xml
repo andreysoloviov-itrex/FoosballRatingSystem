@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.itrexgroup.foosballratingsystem.ui.pager.PagerFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_mainFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_playerGamesFragment"
+            app:destination="@id/gamesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.itrexgroup.foosballratingsystem.ui.game.GameFragment"
+        android:label="game_fragment"
+        tools:layout="@layout/fragment_game">
+        <argument
+            android:name="gameId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gamesFragment"
+        android:name="com.itrexgroup.foosballratingsystem.ui.results.GamesListFragment"
+        android:label="player_games_fragment"
+        tools:layout="@layout/fragment_results">
+        <argument
+            android:name="playerName"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_gamesFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+
+</navigation>

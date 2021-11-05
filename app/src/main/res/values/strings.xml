@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Foosball Rating System</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rating_title">Ratings</string>
+    <string name="results_title">Results</string>
+    <string name="create_new_game">Create new game</string>
+    <string name="winner">winner</string>
+    <string name="games_label">Games:</string>
+    <string name="wins_label">Wins:</string>
+    <string name="player_two">Player 2</string>
+    <string name="player_one">Player 1</string>
+    <string name="score">Score!</string>
+    <string name="foosball_rules">To win a match, you need to reach 5 points</string>
+    <string name="delete">delete</string>
+    <string name="new_season">New season</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="delete_game_title">Delete this game?</string>
+    <string name="new_game">New Game</string>
+    <string name="player_games">%1$s\'s games</string>
+    <string name="player_vs_player">%1$s vs %2$s</string>
+</resources>

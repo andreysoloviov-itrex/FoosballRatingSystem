@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.itrexgroup.foosballratingsystem.ui.game.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.game.GameFragment">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.FoosballRatingSystem.AppBarOverlay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <Button
+            android:id="@+id/game_date"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> viewmodel.onDatePickerClicked()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbar_layout"
+            tools:text="12.08.21 16:50" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/player_name_home_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:hint="@string/player_one"
+            app:layout_constraintEnd_toStartOf="@id/vs_delimiter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/game_date"
+            app:layout_constraintWidth_min="120dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/player_name_home_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="textAutoComplete"
+                android:maxLength="10"
+                android:maxLines="1"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/player_name_away_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:hint="@string/player_two"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vs_delimiter"
+            app:layout_constraintTop_toTopOf="@id/player_name_home_layout"
+            app:layout_constraintWidth_min="120dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/player_name_away_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="textAutoComplete"
+                android:maxLength="10"
+                android:maxLines="1"
+                app:autoSizeMaxTextSize="22sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeTextType="uniform" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/player_score_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+            app:layout_constraintBottom_toBottomOf="@id/score_delimiter"
+            app:layout_constraintEnd_toStartOf="@id/score_delimiter"
+            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/score_delimiter"
+            app:layout_constraintWidth_min="56dp"
+            tools:text="5" />
+
+        <TextView
+            android:id="@+id/winner_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/winner"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+            android:textColor="?colorSecondaryVariant"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/player_name_home_layout"
+            app:layout_constraintStart_toStartOf="@id/player_name_home_layout"
+            app:layout_constraintTop_toBottomOf="@id/player_name_home_layout" />
+
+        <TextView
+            android:id="@+id/winner_away"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/winner"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+            android:textColor="?colorSecondaryVariant"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/player_name_away_layout"
+            app:layout_constraintStart_toStartOf="@id/player_name_away_layout"
+            app:layout_constraintTop_toBottomOf="@id/player_name_away_layout" />
+
+        <TextView
+            android:id="@+id/score_delimiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="80dp"
+            android:includeFontPadding="false"
+            android:text=":"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/player_name_home_layout"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/vs_delimiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:includeFontPadding="false"
+            android:text="vs"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            app:layout_constraintBottom_toBottomOf="@id/player_name_home_layout"
+            app:layout_constraintEnd_toStartOf="@id/player_name_away_layout"
+            app:layout_constraintStart_toEndOf="@id/player_name_home_layout"
+            app:layout_constraintTop_toTopOf="@id/player_name_home_layout"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/decrease_score_home"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:onClick="@{() -> viewmodel.onHomeScoreDecreased()}"
+            android:text="-"
+            android:textColor="?colorSecondaryVariant"
+            android:textSize="48dp"
+            app:layout_constraintBottom_toBottomOf="@id/player_score_home"
+            app:layout_constraintEnd_toStartOf="@id/player_score_home"
+            app:layout_constraintTop_toTopOf="@id/player_score_home"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <TextView
+            android:id="@+id/player_score_away"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline1"
+            app:layout_constraintBottom_toBottomOf="@id/score_delimiter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toEndOf="@id/score_delimiter"
+            app:layout_constraintTop_toTopOf="@id/score_delimiter"
+            app:layout_constraintWidth_min="56dp"
+            tools:text="4" />
+
+
+        <TextView
+            android:id="@+id/decrease_score_away"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:onClick="@{() -> viewmodel.onAwayScoreDecreased()}"
+            android:text="-"
+            android:textColor="?colorSecondaryVariant"
+            android:textSize="48dp"
+            app:layout_constraintBottom_toBottomOf="@id/player_score_away"
+            app:layout_constraintStart_toEndOf="@id/player_score_away"
+            app:layout_constraintTop_toTopOf="@id/player_score_away"
+            tools:ignore="HardcodedText,SpUsage" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_score_home"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:minHeight="60dp"
+            android:onClick="@{() -> viewmodel.onHomePlayerScored()}"
+            android:text="@string/score"
+            app:layout_constraintEnd_toEndOf="@id/player_score_home"
+            app:layout_constraintStart_toStartOf="@id/player_score_home"
+            app:layout_constraintTop_toBottomOf="@id/player_score_home" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_score_away"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:minHeight="60dp"
+            android:onClick="@{() -> viewmodel.onAwayPlayerScored()}"
+            android:text="@string/score"
+            app:layout_constraintEnd_toEndOf="@id/player_score_away"
+            app:layout_constraintStart_toStartOf="@id/player_score_away"
+            app:layout_constraintTop_toBottomOf="@id/player_score_away" />
+
+        <TextView
+            android:id="@+id/rules"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/foosball_rules"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_score_home" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

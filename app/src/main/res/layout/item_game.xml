@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:minHeight="?listPreferredItemHeight"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:id="@+id/game_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12.10.2021 14:50" />
+
+    <TextView
+        android:id="@+id/player_name_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:layout_constraintEnd_toStartOf="@id/player_score_home"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_date"
+        tools:text="Amos" />
+
+    <TextView
+        android:id="@+id/player_name_away"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/player_score_away"
+        app:layout_constraintTop_toBottomOf="@id/game_date"
+        tools:text="Diego" />
+
+    <TextView
+        android:id="@+id/player_score_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@id/score_delimiter"
+        app:layout_constraintEnd_toStartOf="@id/score_delimiter"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@id/score_delimiter"
+        app:layout_constraintWidth_min="36dp"
+        tools:text="11" />
+
+    <TextView
+        android:id="@+id/score_delimiter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:includeFontPadding="false"
+        android:text=":"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_date"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/player_score_away"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@id/score_delimiter"
+        app:layout_constraintStart_toEndOf="@id/score_delimiter"
+        app:layout_constraintTop_toTopOf="@id/score_delimiter"
+        app:layout_constraintWidth_min="36dp"
+        tools:text="4" />
+
+    <TextView
+        android:id="@+id/winner_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/winner"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+        android:textColor="?colorSecondaryVariant"
+        app:layout_constraintStart_toStartOf="@id/player_name_home"
+        app:layout_constraintTop_toBottomOf="@id/player_name_home" />
+
+    <TextView
+        android:id="@+id/winner_away"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/winner"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+        android:textColor="?colorSecondaryVariant"
+        app:layout_constraintEnd_toEndOf="@id/player_name_away"
+        app:layout_constraintTop_toBottomOf="@id/player_name_away" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
